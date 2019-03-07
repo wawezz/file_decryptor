@@ -10,7 +10,8 @@ import voicenter_file_decryptor from "voicenter_file_decryptor";
         {
           algorithm: "aes256",
           mimeType: "audio/mp3",
-          chunkSize: 1024 * 1024
+          chunkSize: 1024 * 1024,
+          sleep: 0.1
         }
       )
       .then(audioBase64 => {

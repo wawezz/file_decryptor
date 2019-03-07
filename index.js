@@ -8,7 +8,8 @@ function sleep(ms) {
 const defaultOptions = {
     algorithm: 'aes256',
     mimeType: 'audio/ogg',
-    chunkSize: 1024 * 1024
+    chunkSize: 1024 * 1024,
+    sleep: 0.1
 };
 
 module.exports.decrypt = (url, key, options) => {
@@ -26,7 +27,7 @@ module.exports.decrypt = (url, key, options) => {
 
                     while (null !== (chunk = cipher.read(options.chunkSize))) {
                         buffer = Buffer.concat([buffer, chunk]);
-                        await sleep(0.1);
+                        await sleep(options.sleep);
                     }
                 });
 
